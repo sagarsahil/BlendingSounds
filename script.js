@@ -40,7 +40,10 @@ function update(){
     $('#indicators').html(indicator);
     $('.item').first().addClass('active');
     $('.carousel-indicators > li').first().addClass('active');
-    $("#myCarousel").carousel();
+    $("#myCarousel").carousel({
+        keyboard: true,
+        wrap: false
+      });
     hide();
  };
 
@@ -61,3 +64,12 @@ function update(){
         $('#btnhide').text("Hide");
     }
  }
+
+ $(document).bind('keyup', function(e) {
+    if(e.which == 39){
+        $("#myCarousel").carousel('next');
+    }
+    else if(e.which == 37){
+        $("#myCarousel").carousel('prev');
+    }
+});
